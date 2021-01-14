@@ -7,3 +7,9 @@ def post_list(request):
     ctx = {'posts' : posts}
 
     return render(request, template_name = 'posts/list.html', context = ctx)
+
+def post_detail(request, post_id):
+    post = Post.objects.get(id=post_id)
+    ctx = {'post' : post}
+
+    return render(request, 'posts/detail.html', context = ctx)
